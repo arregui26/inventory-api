@@ -84,7 +84,11 @@ app.Use(async (context, next) =>
     await next(context);
 });
 app.UseSwagger();
-app.UseSwaggerUI(options => options.RoutePrefix = "docs");
+app.UseSwaggerUI(options =>
+{
+    options.RoutePrefix = "docs";
+    options.SwaggerEndpoint("../swagger/v1/swagger.json", "Inventory API v1");
+});
 app.MapGet("/health/live", () => Results.Ok(new { status = "ok" }));
 app.MapGet("/health/ready", async (InventoryDb db, CancellationToken ct) =>
 {

@@ -171,5 +171,7 @@ public sealed class ApiTests(SqlFixture fixture) : IAsyncLifetime
         Assert.Equal(HttpStatusCode.OK, (await client.GetAsync("/health/ready")).StatusCode);
         var spec = await client.GetFromJsonAsync<JsonElement>("/swagger/v1/swagger.json");
         Assert.True(spec.GetProperty("paths").TryGetProperty("/v1/products", out _));
+        var initializer = await client.GetStringAsync("/docs/index.js");
+        Assert.Contains("../swagger/v1/swagger.json", initializer);
     }
 }
