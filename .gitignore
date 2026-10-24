@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+**/bin/
+**/obj/
+**/TestResults/
+.vs/
+.idea/
+*.user
+*.suo
+private/
+*.bak
+*.mdf
+*.ldf
+artifacts/

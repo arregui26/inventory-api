@@ -1,0 +1,13 @@
+.git
+.env
+.env.*
+**/bin
+**/obj
+**/TestResults
+.vs
+.idea
+private
+artifacts
+*.bak
+*.mdf
+*.ldf
